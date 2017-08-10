@@ -1,0 +1,39 @@
+---
+title: "R for eDNA"
+author: "Ben Best"
+date: "August 10, 2017"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: show
+       
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Objectives
+
+Even if you haven't coded in R before, going to try to acquaint you with some new, cool data science techniques. From zero to data science hero!
+
+## Motivating example: eDNA Shiny app
+
+**Shiny** is an R package and framework for building interactive applications. It provides a set of functions for building a front end web interface (into a file `ui.R`) that gets updated based on a back end set of R custom rendering functions (`server.R`). Shiny represents the end point, or motivating use case, for today. Here's an example of a Shiny app for environmental DNA (eDNA) data:
+
+[ecoquants.shinyapps.io/edna-vis](https://ecoquants.shinyapps.io/edna-vis/)
+[![](https://raw.githubusercontent.com/marinebon/edna-vis/master/docs/img/screen.png)](https://ecoquants.shinyapps.io/edna-vis/)
+
+Here's the code for this app:
+
+- [github.com/marinebon/edna-vis](https://github.com/marinebon/edna-vis)
+
+Note that the app is hosted at [**Github.com**](https://github.com), _the_ online versioning portal where the open source world collaboratively codes. As is this little tutorial:
+
+, which is rendered in **Rmarkdown**.
+
+
+
+##
+
