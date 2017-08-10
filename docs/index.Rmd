@@ -18,9 +18,22 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Even if you haven't coded in R before, going to try to acquaint you with some new, cool data science techniques. From zero to data science hero!
 
+### Quick Survey
+
+Who of you have...
+
+- Used RStudio?
+- Knitted an Rmarkdown document?
+- Created a Shiny app?
+- Forked a repository at Github?
+- Used dplyr/tidyr/tidyverse packages and the `%>%` operator?
+- Used an interactive htmlwidget (eg leaflet or plotly)?
+
 ## Motivating example: eDNA Shiny app
 
-**Shiny** is an R package and framework for building interactive applications. It provides a set of functions for building a front end web interface (into a file `ui.R`) that gets updated based on a back end set of R custom rendering functions (`server.R`). Shiny represents the end point, or motivating use case, for today. Here's an example of a Shiny app for environmental DNA (eDNA) data:
+**Shiny** is an R package and framework for building interactive applications. It provides a set of functions for building a front end web interface (into a file `ui.R`) that gets updated based on a back end set of R custom rendering functions (`server.R`). We'll be diving into this more later. You can also get quick gander at the geyser eruption example on the homepage [shiny.rstudio.com](http://shiny.rstudio.com).
+
+Shiny represents the end point, or motivating use case, for today to interactively visualize your data, after cleaning it up using data wrangling techniques. Here's an example of a Shiny app for environmental DNA (eDNA) data:
 
 [ecoquants.shinyapps.io/edna-vis](https://ecoquants.shinyapps.io/edna-vis/)
 [![](https://raw.githubusercontent.com/marinebon/edna-vis/master/docs/img/screen.png)](https://ecoquants.shinyapps.io/edna-vis/)
