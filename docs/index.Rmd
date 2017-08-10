@@ -127,6 +127,22 @@ install.packages("shiny")
 shiny::runGitHub("shiny-phyloseq","joey711")
 ```
 
+## Rockfish data
+
+* [Marine Biodiversity Observation Network: Rockfish Recruitment and Ecosystem Assessment Survey](http://mbon.ioos.us/#module-metadata/8672e1f4-90df-4d9a-8533-37dbea59431e/2b5a4999-286b-4fd5-a4ba-fc3bef82b990)
+    * [ERDDAP - Information about Rockfish Recruitment and Ecosystem Assessment Survey, Catch Data, from NOAA NMFS SWFSC FED](http://oceanview.pfeg.noaa.gov/erddap/info/FED_Rockfish_Catch/index.html)
+        * [ERDDAP - Rockfish Recruitment and Ecosystem Assessment Survey, Catch Data - Data Access Form](http://oceanview.pfeg.noaa.gov/erddap/tabledap/FED_Rockfish_Catch.html)
+            - [FED_Rockfish_Catch_9330_bcea_28db.csv](http://oceanview.pfeg.noaa.gov/erddap/tabledap/FED_Rockfish_Catch.csvp?time%2Clatitude%2Clongitude%2Ccruise%2Chaul_no%2Cvessel%2Cstation%2Ccatch%2Cspecies_code%2Ccommon_name%2Csci_name%2Cspecies_group%2Cmaturity%2Cspecies_notes%2Caphiaid%2Cmatch_type%2Clsid%2Cstation_latitude%2Cstation_longitude%2Cctd_index%2Cstation_bottom_depth%2Carea%2Cstrata%2Ctdr_depth%2Cdepth_strata%2Cbottom_depth%2Cstation_active%2Cstation_notes&time%3E=2015-06-07T00%3A00%3A00Z&time%3C=2015-06-14T00%3A00%3A00Z)
+            
+            
+```{r}
+library(tidyverse)
+
+csv = '../data/FED_Rockfish_Catch_9330_bcea_28db.csv'
+d = read_csv(csv) # View(d)
+
+d
+```
 
 ## Resources
 

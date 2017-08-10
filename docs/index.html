@@ -343,6 +343,80 @@ p</code></pre>
 <pre class="r"><code>install.packages(&quot;shiny&quot;)
 shiny::runGitHub(&quot;shiny-phyloseq&quot;,&quot;joey711&quot;)</code></pre>
 </div>
+<div id="rockfish-data" class="section level2">
+<h2>Rockfish data</h2>
+<ul>
+<li><a href="http://mbon.ioos.us/#module-metadata/8672e1f4-90df-4d9a-8533-37dbea59431e/2b5a4999-286b-4fd5-a4ba-fc3bef82b990">Marine Biodiversity Observation Network: Rockfish Recruitment and Ecosystem Assessment Survey</a>
+<ul>
+<li><a href="http://oceanview.pfeg.noaa.gov/erddap/info/FED_Rockfish_Catch/index.html">ERDDAP - Information about Rockfish Recruitment and Ecosystem Assessment Survey, Catch Data, from NOAA NMFS SWFSC FED</a>
+<ul>
+<li><a href="http://oceanview.pfeg.noaa.gov/erddap/tabledap/FED_Rockfish_Catch.html">ERDDAP - Rockfish Recruitment and Ecosystem Assessment Survey, Catch Data - Data Access Form</a>
+<ul>
+<li><a href="http://oceanview.pfeg.noaa.gov/erddap/tabledap/FED_Rockfish_Catch.csvp?time%2Clatitude%2Clongitude%2Ccruise%2Chaul_no%2Cvessel%2Cstation%2Ccatch%2Cspecies_code%2Ccommon_name%2Csci_name%2Cspecies_group%2Cmaturity%2Cspecies_notes%2Caphiaid%2Cmatch_type%2Clsid%2Cstation_latitude%2Cstation_longitude%2Cctd_index%2Cstation_bottom_depth%2Carea%2Cstrata%2Ctdr_depth%2Cdepth_strata%2Cbottom_depth%2Cstation_active%2Cstation_notes&amp;time%3E=2015-06-07T00%3A00%3A00Z&amp;time%3C=2015-06-14T00%3A00%3A00Z">FED_Rockfish_Catch_9330_bcea_28db.csv</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</code></pre>
+<pre><code>## Warning: package 'purrr' was built under R version 3.4.1</code></pre>
+<pre><code>## Warning: package 'dplyr' was built under R version 3.4.1</code></pre>
+<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats</code></pre>
+<pre class="r"><code>csv = '../data/FED_Rockfish_Catch_9330_bcea_28db.csv'
+d = read_csv(csv) # View(d)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   `time (UTC)` = col_datetime(format = &quot;&quot;),
+##   `latitude (degrees_north)` = col_double(),
+##   `longitude (degrees_east)` = col_double(),
+##   cruise = col_integer(),
+##   haul_no = col_integer(),
+##   station = col_integer(),
+##   catch = col_integer(),
+##   species_code = col_double(),
+##   aphiaid = col_integer(),
+##   `station_latitude (degrees_north)` = col_double(),
+##   `station_longitude (degrees_east)` = col_double(),
+##   ctd_index = col_integer(),
+##   `station_bottom_depth (meters)` = col_integer(),
+##   `tdr_depth (meters)` = col_integer(),
+##   depth_strata = col_integer(),
+##   `bottom_depth (meters)` = col_integer()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code>d</code></pre>
+<pre><code>## # A tibble: 5,655 x 28
+##           `time (UTC)` `latitude (degrees_north)`
+##                 &lt;dttm&gt;                      &lt;dbl&gt;
+##  1 2015-06-07 04:41:17                    32.7097
+##  2 2015-06-07 04:41:17                    32.7097
+##  3 2015-06-07 04:41:17                    32.7097
+##  4 2015-06-07 04:41:17                    32.7097
+##  5 2015-06-07 04:41:17                    32.7097
+##  6 2015-06-07 04:41:17                    32.7097
+##  7 2015-06-07 04:41:17                    32.7097
+##  8 2015-06-07 04:41:17                    32.7097
+##  9 2015-06-07 04:41:17                    32.7097
+## 10 2015-06-07 04:41:17                    32.7097
+## # ... with 5,645 more rows, and 26 more variables: `longitude
+## #   (degrees_east)` &lt;dbl&gt;, cruise &lt;int&gt;, haul_no &lt;int&gt;, vessel &lt;chr&gt;,
+## #   station &lt;int&gt;, catch &lt;int&gt;, species_code &lt;dbl&gt;, common_name &lt;chr&gt;,
+## #   sci_name &lt;chr&gt;, species_group &lt;chr&gt;, maturity &lt;chr&gt;,
+## #   species_notes &lt;chr&gt;, aphiaid &lt;int&gt;, match_type &lt;chr&gt;, lsid &lt;chr&gt;,
+## #   `station_latitude (degrees_north)` &lt;dbl&gt;, `station_longitude
+## #   (degrees_east)` &lt;dbl&gt;, ctd_index &lt;int&gt;, `station_bottom_depth
+## #   (meters)` &lt;int&gt;, area &lt;chr&gt;, strata &lt;chr&gt;, `tdr_depth (meters)` &lt;int&gt;,
+## #   depth_strata &lt;int&gt;, `bottom_depth (meters)` &lt;int&gt;,
+## #   station_active &lt;chr&gt;, station_notes &lt;chr&gt;</code></pre>
+</div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
 <ul>
