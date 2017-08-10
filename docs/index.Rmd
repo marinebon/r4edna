@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Objectives
 
-Even if you haven't coded in R before, going to try to acquaint you with some new, cool data science techniques. From zero to data science hero!
+Even if you haven't coded in R before, going to try to briefly acquaint you with some new, cool data science techniques. From zero to data science hero!
 
 ### Quick Survey
 
@@ -44,9 +44,104 @@ Here's the code for this app:
 
 Note that the app is hosted at [**Github.com**](https://github.com), _the_ online versioning portal where the open source world collaboratively codes. As is this little tutorial:
 
-, which is rendered in **Rmarkdown**.
+
+- [github.com/marinebon/r4edna](https://github.com/marinebon/r4edna/blob/master/docs/index.Rmd)
+
+Note how the code repository view of `docs/index.html` gets served as an actual web page to this URL:
+
+- [marinebon.github.io/r4edna](https://marinebon.github.io/r4edna/)
+
+This is according to conventions laid out by [Github Pages](https://pages.github.com/), or serving up free websites from files stored on Github. All content on Github is organized according to `owner`/`repository`. (Notice how they get rearranged between github.com and github.io.)
+
+You'll also notice this document is generated with [**Rmarkdown**](http://rmarkdown.rstudio.com), a document format for rendering chunks of R code with plain text formatted (headers, bold, links, etc) using the markdown style (which gets automatically rendered in Github).
+
+## Phyloseq
+
+Collin Closek provided this file in [Biological Observation Matrix](http://biom-format.org/) format (`*.biom`).
+
+To read this, we'll use the R package [phyloseq](https://joey711.github.io/phyloseq).
+
+### Install `phyloseq`
+
+```{r, eval=F}
+source('http://bioconductor.org/biocLite.R')
+biocLite('phyloseq')
+```
+
+- [Importing phyloseq Data](https://joey711.github.io/phyloseq/import-data.html)
+
+### Read `*.biom` file
+
+```{r}
+# load libraries
+library(phyloseq)
+
+# set working directory to Rmd so same as Knit
+if (basename(getwd()) != 'docs') setwd('docs')
+
+biom = '../data/MB_json_obs_md.biom'
+
+p = import_biom(biom)
+p
+```
+
+### Plot bar
+
+```{r plot_bar}
+plot_bar(p)
+```
+
+### Plot tree
+
+```{r plot_tree, eval=F}
+plot_tree(p)
+```
+
+```
+Error in plot_tree(p) : 
+  There is no phylogenetic tree in the object you have provided.
+```
+
+## Krona visualization
+
+![](http://marbl.github.io/Krona/img/screen_phymmbl.png)
+
+* [Home · marbl/Krona Wiki](https://github.com/marbl/Krona/wiki)
+* [plot_krona: Interactive Taxonomy plot with Krona from a phyloseq object in cpauvert/psadd: Additions to phyloseq package for microbiome analysis](https://rdrr.io/github/cpauvert/psadd/man/plot_krona.html)
+* [Bioconductor - metagenomeSeq](http://bioconductor.org/packages/release/bioc/html/metagenomeSeq.html)
+* [Easy way to automatically save images of Krona HTML charts?](https://www.biostars.org/p/221964/)
+* [GenomicaMicrob/OTUsamples2krona: Simple script to generate Krona charts for all samples in an OTU table file](https://github.com/GenomicaMicrob/OTUsamples2krona)
+* [Qiime file for Krona pie chart?](https://www.biostars.org/p/191933/)
+* [Visualize your metagenomics 16S results with Krona charts](https://ionreporter.thermofisher.com/ionreporter/help/GUID-BE5F627D-27BE-48E3-ACCF-6C8C1585CF92.html)
+* [MetaPhlAn: Metagenomic Phylogenetic Analysis | The Huttenhower Lab](http://huttenhower.sph.harvard.edu/metaphlan)
+* [gobics.de:Tax4Fun](http://tax4fun.gobics.de/)
+
+## Shiny-phyloseq
+
+- [Shiny-phyloseq](http://joey711.github.io/shiny-phyloseq/)
+
+Install:
+
+```{r, eval=F}
+install.packages("shiny")
+shiny::runGitHub("shiny-phyloseq","joey711")
+```
 
 
+## Resources
 
-##
+- Literature on reproducible research best practices
+    * [Our path to better science in less time using open data science tools](http://ohi-science.org/betterscienceinlesstime/)
+    * [Good enough practices in scientific computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510#sec002)
+    * [Ten Simple Rules for the Care and Feeding of Scientific Data](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003542&ct=t(andsUP_27SEP_2016))
+    * [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745&utm_content=buffer184f2&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+- conference & training
+    - [rstudio::conf](https://www.rstudio.com/conference/) Jan 31 - Feb 3, 2018 in San Diego
+- [Training | EcoQuants](http://ecoquants.com/train/)
+    - [Software Carpentry](http://remi-daigle.github.io/2016-04-15-UCSB/) workshop
+    - [Environmental Informatics](http://ucsb-bren.github.io/env-info/) course
+- Online books
+    - [R for Data Science](http://r4ds.had.co.nz)
+    - [Spatial Data Analysis and Modeling with R](http://rspatial.org)
+    - [Geocomputation with R](http://robinlovelace.net/geocompr)
 
